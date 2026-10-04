@@ -1,5 +1,5 @@
 // 날짜(KST)·오늘의 판·기기 저장. 서버가 없어도 혼자 완결된다.
-import { PUZZLE_COUNT, PUZZLE_DATA } from './puzzles.js?v=202610041016';
+import { PUZZLE_COUNT, PUZZLE_DATA } from './puzzles.js?v=202610041102';
 
 const CFG = window.HANPAN_CONFIG;
 const KEY = 'hanpan';

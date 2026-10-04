@@ -1,8 +1,11 @@
 // 서버 기록 (판정 지표·오늘 통계). 설정이 비어 있거나 실패해도 게임은 그대로 돈다.
-import { deviceId } from './store.js?v=202610041016';
+import { deviceId } from './store.js?v=202610041102';
 
 const CFG = window.HANPAN_CONFIG;
-const on = () => !!(CFG.supabaseUrl && CFG.supabaseKey) && !new URLSearchParams(location.search).has('p');
+// 로컬 미리보기·?p= 미리보기는 지표에 섞이지 않게 보내지 않는다
+// 앱(Capacitor) 안도 주소가 localhost라서 앱이 아닐 때만 막는다
+const LOCAL = ['localhost', '127.0.0.1'].includes(location.hostname) && !window.Capacitor?.isNativePlatform?.();
+const on = () => !!(CFG.supabaseUrl && CFG.supabaseKey) && !LOCAL && !new URLSearchParams(location.search).has('p');
 
 async function rpc(fn, args) {
   if (!on()) return null;
