@@ -1,0 +1,11 @@
+{
+  "name": "한글한판",
+  "short_name": "한글한판",
+  "description": "매일 자정 새 판이 짜이는 한글 퍼즐",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#F5F0E4",
+  "theme_color": "#F5F0E4",
+  "lang": "ko",
+  "icons": [{ "src": "icons/icon.svg", "sizes": "any", "type": "image/svg+xml" }]
+}

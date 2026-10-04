@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>한글한판 — 오늘의 한글 퍼즐</title>
+  <meta name="description" content="매일 자정 새 판이 짜이는 한글 퍼즐. 열여섯 낱말을 넷씩 묶어 보세요.">
+  <meta name="theme-color" content="#F5F0E4" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#1B1916" media="(prefers-color-scheme: dark)">
+  <meta property="og:title" content="한글한판 — 오늘의 한글 퍼즐">
+  <meta property="og:description" content="열여섯 낱말을 넷씩 묶는 하루 한 판. 오늘 판은 몇 번 만에 짜셨나요?">
+  <meta property="og:image" content="https://rlawnstlr001-design.github.io/hanpan/og.png">
+  <meta property="og:url" content="https://rlawnstlr001-design.github.io/hanpan/">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=202610041007">
+</head>
+<body>
+  <header class="top">
+    <a class="brand" href="#/" aria-label="한글한판 처음으로">
+      <span class="seal" aria-hidden="true">한판</span>
+      <span class="brand-name">한글한판</span>
+    </a>
+    <nav class="top-actions">
+      <button class="icon-btn" id="btn-help" aria-label="규칙 보기">?</button>
+      <button class="icon-btn" id="btn-stats" aria-label="내 기록">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 20V11M12 20V5M19 20v-6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" fill="none"/></svg>
+      </button>
+    </nav>
+  </header>
+
+  <main id="view" tabindex="-1"></main>
+
+  <div id="toast" role="status" aria-live="polite"></div>
+  <div id="sheet-root"></div>
+
+  <script src="config.js?v=202610041007"></script>
+  <script type="module" src="js/app.js?v=202610041007"></script>
+</body>
+</html>
