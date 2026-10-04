@@ -5,6 +5,6 @@ window.HANPAN_CONFIG = {
   // 공유 문구 끝에 붙는 주소
   site: 'https://rlawnstlr001-design.github.io/hanpan/',
   // 플레이 기록(오늘 N% 통계·판정 지표) 서버 — 비어 있으면 기기에만 저장
-  supabaseUrl: '',
-  supabaseKey: '',
+  supabaseUrl: 'https://nkmkqczahmwqjddzpeqr.supabase.co',
+  supabaseKey: 'sb_publishable_EkAloSEEewcCT4qyu6smSQ_gk4kDT_R', // 공개용 키 — 권한은 RPC가 통제
 };

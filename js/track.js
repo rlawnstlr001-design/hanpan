@@ -1,5 +1,5 @@
 // 서버 기록 (판정 지표·오늘 통계). 설정이 비어 있거나 실패해도 게임은 그대로 돈다.
-import { deviceId } from './store.js?v=202610041007';
+import { deviceId } from './store.js?v=202610041016';
 
 const CFG = window.HANPAN_CONFIG;
 const on = () => !!(CFG.supabaseUrl && CFG.supabaseKey) && !new URLSearchParams(location.search).has('p');
