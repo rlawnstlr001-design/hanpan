@@ -1,5 +1,5 @@
 // 날짜(KST)·오늘의 판·기기 저장. 서버가 없어도 혼자 완결된다.
-import { PUZZLE_COUNT, PUZZLE_DATA } from './puzzles.js?v=202610041102';
+import { PUZZLE_COUNT, PUZZLE_DATA } from './puzzles.js?v=202611091618';
 
 const CFG = window.HANPAN_CONFIG;
 const KEY = 'hanpan';
@@ -31,13 +31,21 @@ function allPuzzles() {
   return decoded;
 }
 
+// 1~36판(2026-11-09까지)은 처음 21판을 돌려 썼다. 37판부터는 22번째 판부터 차례로 나간다.
+// 판을 뒤에 붙여도 순서가 밀리지 않고, 바닥나면 새 판끼리 다시 돈다 (빈 화면보다 낫다).
+const REUSED_DAYS = 36;
+const FIRST_SET = 21;
+function puzzleIndex(no) {
+  if (no <= REUSED_DAYS) return (no - 1) % FIRST_SET;
+  return FIRST_SET + (no - REUSED_DAYS - 1) % (PUZZLE_COUNT - FIRST_SET);
+}
+
 // 오늘(또는 ?p=번호 미리보기)의 묶음 퍼즐. no = 제N판(1부터)
 export function puzzleFor(dateStr = kstDate()) {
   const preview = new URLSearchParams(location.search).get('p');
   const no = preview ? Number(preview) : dayIndex(dateStr) + 1;
   if (!(no >= 1)) return null; // 첫 판 전
-  // 판이 바닥나면 처음부터 다시 돈다 (빈 화면보다 낫다). 빌드 때 남은 일수를 경고한다.
-  const p = allPuzzles()[(no - 1) % PUZZLE_COUNT];
+  const p = allPuzzles()[puzzleIndex(no)];
   return { no, date: dateStr, preview: !!preview, ...p };
 }
 
